@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Yield Estimation</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Crop Yield Estimation</h1>
+    <form method="post">
+        <div class="form-group">
+            <label>Rainfall (mm):</label>
+            <input type="number" step="0.1" name="rainfall" required>
+        </div>
+        <div class="form-group">
+            <label>Temperature (°C):</label>
+            <input type="number" step="0.1" name="temperature" required>
+        </div>
+        <div class="form-group">
+            <label>Fertilizer (kg/ha):</label>
+            <input type="number" step="0.1" name="fertilizer" required>
+        </div>
+        <div class="form-group">
+            <label>Soil Quality (0-1):</label>
+            <input type="number" step="0.1" name="soil_quality" required>
+        </div>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+        <div class="result">
+            <h3>Predicted Crop Yield: {{ prediction }} tons/ha</h3>
+        </div>
+    {% endif %}
+    <p><a href="/">Back to Home</a></p>
+    <footer>
+        <p>© 2025 Smart Farming Assistant by Kartikesh Chatti</p>
+    </footer>
+</body>
+</html>

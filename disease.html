@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Disease Detection</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Plant Disease Detection</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*">
+        <input type="submit" value="Predict">
+    </form>
+    {% if error %}
+        <p class="result" style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if prediction %}
+        <div class="result">
+            <h3>Predicted Disease: {{ prediction }}</h3>
+            <img src="/{{ image_path }}" alt="Uploaded Image" style="max-width: 300px;">
+        </div>
+    {% endif %}
+    <p><a href="/">Back to Home</a></p>
+    <footer>
+        <p>© 2025 Smart Farming Assistant by Kartikesh Chatti</p>
+    </footer>
+</body>
+</html>
